@@ -2,7 +2,6 @@
 
 https://www.markdownguide.org/
 
-https://reactnative.dev/docs/getting-started
 
 ##Note
 
