@@ -1,6 +1,8 @@
 # MobileappsRevise
 
 https://www.markdownguide.org/
+npm install @react-native-async-storage/async-storage
+
 
 
 ##Note
