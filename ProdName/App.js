@@ -97,4 +97,32 @@ const saveUserSession = async (user) => {
     console.error('Failed to save user session:', e);
   }
 };
+
+const handleLogout = async () => {
+  try {
+    await AsyncStorage.rwmoveItem('currentUser');
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+    Alert.alert('Success', 'You have been logged out');
+  } catch (e) {
+    console.error('Failed to log out:', e);
+  }
+};
+
+if (isLoggedIn) {
+  return (
+    <View style={styles.container}>
+      <StatusBar backgroundColor="#2c3e50" />
+      <Text style={styles.welcomeText}>welcome, {currentUser.usernamee}!</Text>
+      <Text style={styles.infoText}>You are now logged in.</Text>
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Text style={styles.buttonText}>Logout</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+return (
+  <View style={styles.container}></View>
+)
 }
