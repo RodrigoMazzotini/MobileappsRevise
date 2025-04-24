@@ -36,4 +36,65 @@ const styles = StyleSheet.create({
 // #F57200
 // #F4442E
 
+const USERS_DATA = {
+  "users": [
+    {
+      "username": "mainMan", 
+      "password": "sauce"
+    },
+    {
+      "username": "sideKick",
+      "password": "cheese"
+    }
 
+  ]
+};
+
+export default function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+useEffect(()  => {
+  const checkLoginStatus = async () => {
+    try {
+      const userValue = await AsyncStorage.getItem('currentUser');
+      if (userValue !== null) {
+        setCurrentUser(JSON.parse(userValue));
+        setIsLoggedIn(true);
+      }
+    } catch (e) {
+      console.error('Failed to load login status:', e);
+    }
+  };
+  
+  checkLoginStatus();
+}, []);
+
+const handleLogin = () => {
+
+  const user = USERS_DATA.user.find(
+    user => user.username === username && user.password === password
+  );
+
+  if (user) {
+    saveUserSession(user);
+    setCurrentUser(user);
+    setIsLoggedIn(true);
+    setUsername('');
+    setPassword('');
+    Alert.alert('Success', 'You are Logged in successfully!');
+  } else {
+    Alert.alert('Error', 'Invalid username or password');
+  }
+};
+
+const saveUserSession = async (user) => {
+  try {
+    await AsyncStorage.setItem('currentUser', JSON. stringify(user));
+  } catch (e) {
+    console.error('Failed to save user session:', e);
+  }
+};
+}
