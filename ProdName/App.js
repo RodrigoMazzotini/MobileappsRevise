@@ -123,6 +123,44 @@ if (isLoggedIn) {
 }
 
 return (
-  <View style={styles.container}></View>
-)
+  <View style={styles.container}>
+    <StatusBar backgroundColor="#2c3e50" />
+    <Text style={styles.title}>Login</Text>
+
+    <View style={styles.inputContainer}>
+      <Text style={styles.inputContainer}>Username</Text>
+      <TextInput
+       style={styles.input}
+       placeholder="Enter your username"
+       value={username}
+       onChangeText={setUsername}
+       autoCapitalize="none"
+      />
+    </View>
+
+    <View style={styles.inputContainer}>
+      <Text style={styles.inputContainer}>Password</Text>
+      <TextInput
+       style={styles.input}
+       placeholder="Enter your password"
+       value={password}
+       onChangeText={setPassword}
+       secureTextEntry
+      />
+    </View>
+
+
+       <TouchableOpacity
+        style={styles.loginButton}
+        onPress={handleLogin}
+        disabled={!username || !password}
+    >
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity> 
+
+    <Text style={styles.hint}>
+      (Hint: use user1/password1 or user2/password2)
+    </Text>
+   </View>
+  );
 }
