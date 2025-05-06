@@ -13,12 +13,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const USERS_DATA = {
   "users": [
     {
-      "username1": "mainMan", 
-      "password1": "sauce"
+      "username": "mainMan", 
+      "password": "sauce"
     },
     {
-      "username2": "sideKick",
-      "password2": "cheese"
+      "username": "sideKick",
+      "password": "cheese"
     }
 
   ]
