@@ -213,3 +213,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
   }
 });
+
+// #FFCFAD
+// #4B0907
+// #C95603
+// #F57200
+// #F4442E
