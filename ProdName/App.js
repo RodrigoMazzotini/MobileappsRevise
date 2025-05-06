@@ -25,8 +25,8 @@ const USERS_DATA = {
 };
 
 export default function App() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('mainMan');
+  const [password, setPassword] = useState('sauce');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
